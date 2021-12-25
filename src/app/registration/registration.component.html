@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RegistrationPage</title>
+  </head>
+  <body>
+    <h3>Registration Forms</h3>
+    <label>Create UserName</label><br />
+    <input
+      type="text"
+      name=""
+      class="form-control"
+      required="true"
+      [(ngModel)]="user"
+    /><br />
+    <label>FirstName</label><br />
+    <input type="text" name="" class="form-control" [(ngModel)]="fs" /><br />
+    <label>LastName</label><br />
+    <input type="text" name="" class="form-control" [(ngModel)]="ls" /><br />
+    <label>Email</label><br />
+    <input
+      type="email"
+      name=""
+      class="form-control"
+      required
+      [(ngModel)]="em"
+    /><br />
+    <label>Gender</label><br /><br />
+    <input
+      type="radio"
+      name="gender"
+      value="Male"
+      [(ngModel)]="gender"
+    />Male<br />
+    <input
+      type="radio"
+      name="gender"
+      value="Female"
+      [(ngModel)]="gender"
+    />Female<br /><br />
+    <label>ContactName</label><br />
+    <input
+      type="text"
+      name=""
+      class="form-control"
+      required
+      max="10"
+      [(ngModel)]="cn"
+    /><br />
+    <button class="btn btn-primary" (click)="registerUser()">
+      RegisterStudent
+    </button><br><br>
+    <button class="btn btn-primary" (click)="getAllUser()">
+      getAllUser
+    </button><br><br>
+    <button class="btn btn-primary" (click)="getSpecificUser()">
+      getSpecificUser
+    </button><br><br>
+    <button class="btn btn-primary" (click)="updateUser()">
+      UpdateUser
+    </button><br><br>
+    <button class="btn btn-primary" (click)="deleteUser()">
+      DeleteUser
+    </button>
+  </body>
+</html>

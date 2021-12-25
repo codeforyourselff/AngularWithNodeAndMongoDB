@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>LoginPage</title>
+    </head>
+    <body>
+        <h3>Login</h3>
+        <label>UserName</label><br>
+        <input type="text" placeholder="Enter your username" class="form-control" [(ngModel)]="us"><br>
+        <label>Password</label><br>
+        <input type="password" placeholder="Enter your password" class="form-control" [(ngModel)]="ps"><br>
+        <button class="btn btn-primary" (click)="myLogin()">Login</button>
+    </body>
+</html>
