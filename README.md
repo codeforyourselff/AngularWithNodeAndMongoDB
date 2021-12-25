@@ -1,5 +1,7 @@
 # ProjectWithNode
-
+Hello everyone!This is my first Project with angular cli with node js and mongoDb.I have created one form that takes user input and handled through
+node js and saved into db.
+try to implented the CRUD operations into the node js.
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.2.
 
 ## Development server
