@@ -12,6 +12,7 @@
       class="form-control"
       required="true"
       [(ngModel)]="user"
+      maxlength="7" 
     /><br />
     <label>FirstName</label><br />
     <input type="text" name="" class="form-control" [(ngModel)]="fs" /><br />
@@ -38,6 +39,15 @@
       value="Female"
       [(ngModel)]="gender"
     />Female<br /><br />
+    <label>Create password</label><br />
+    <input
+      type="password"
+      class="form-control"
+      required
+      [(ngModel)]="ps"
+      minlength="8"
+      maxlength="16"
+    />
     <label>ContactName</label><br />
     <input
       type="text"
@@ -48,19 +58,15 @@
       [(ngModel)]="cn"
     /><br />
     <button class="btn btn-primary" (click)="registerUser()">
-      RegisterStudent
-    </button><br><br>
-    <button class="btn btn-primary" (click)="getAllUser()">
-      getAllUser
-    </button><br><br>
+      RegisterStudent</button
+    ><br /><br />
+    <button class="btn btn-primary" (click)="getAllUser()">getAllUser</button
+    ><br /><br />
     <button class="btn btn-primary" (click)="getSpecificUser()">
-      getSpecificUser
-    </button><br><br>
-    <button class="btn btn-primary" (click)="updateUser()">
-      UpdateUser
-    </button><br><br>
-    <button class="btn btn-primary" (click)="deleteUser()">
-      DeleteUser
-    </button>
+      getSpecificUser</button
+    ><br /><br />
+    <button class="btn btn-primary" (click)="updateUser()">UpdateUser</button
+    ><br /><br />
+    <button class="btn btn-primary" (click)="deleteUser()">DeleteUser</button>
   </body>
 </html>

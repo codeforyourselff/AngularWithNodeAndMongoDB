@@ -7,8 +7,10 @@ const cors = require("cors");
 
 const indexRouter = require("./routes/index");
 const registerUser = require("./routes/registerUsers");
+const loginRoutes = require("./routes/loginUser");
+// eslint-disable-next-line import/extensions
 const connectionFile = require("./connectionDB/connection.js");
-const schemas = require("./models/registerUserSchema");
+
 
 const app = express();
 
@@ -37,6 +39,7 @@ app.use("/registeruser", registerUser);
 app.use("/registeruser", registerUser);
 app.use("/updateUser", registerUser);
 app.use("/deleteUser", registerUser);
+app.use("/getLoginUser",loginRoutes);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

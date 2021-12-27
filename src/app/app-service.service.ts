@@ -18,10 +18,6 @@ export class AppServiceService implements OnInit {
     return this.http.get(`${url.apiUrl}/registeruser/${user}`);
   }
 
-  loginUser(obj: Object) {
-    return this.http.get('/api/findUser', obj);
-  }
-
   getAllData() {
     return this.http.get(`${url.apiUrl}`);
   }
@@ -33,5 +29,9 @@ export class AppServiceService implements OnInit {
   deleteUserById(user: string) {
     const id = user;
     return this.http.delete(`${url.apiUrl}/deleteUser/${id}`);
+  }
+
+  loginUser(obj: Object) {
+    return this.http.post(`${url.apiUrl}/getLoginUser`, obj);
   }
 }

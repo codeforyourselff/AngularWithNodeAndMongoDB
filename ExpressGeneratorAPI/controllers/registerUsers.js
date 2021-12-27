@@ -1,22 +1,22 @@
-const createUser = require("../models/registerUserSchema");
+const createUser = require('../models/registerUserSchema');
+const helper = require('../helper/validation');
+const createHttpError = require('http-errors');
 
 const registerUserController = async (req, res) => {
   try {
-    const User = await new createUser({
-      userName: req.body.userName,
-      firstName: req.body.firstName,
-      lastName: req.body.lastName,
-      email: req.body.email,
-      gender: req.body.gender,
-      contactNo: req.body.contactNo,
-    });
-    User.save((err) => {
-      if (!err) {
-        return res.json({ Message: "User registered..!!" });
-      } else {
-        console.log(err);
-      }
-    });
+    const result = await helper.authSchema.validateAsync(req.body);
+    result.password = await helper.passwordHash(result.password);
+    const doesExist = await createUser.findOne({ email: result.email });
+    if (doesExist) {
+      throw createHttpError.Conflict(`${result.email} is already registered`);
+    } else {
+      const User = await new createUser(result);
+      await User.save((err) => {
+        if (!err) {
+          return res.json({ Message: 'User registered..!!' });
+        }
+      });
+    }
   } catch (error) {
     console.log(error);
   }
@@ -44,7 +44,7 @@ const getRegisterUserDetails = async (req, res) => {
     if (fetchUser) {
       return res.json(fetchUser);
     } else {
-      return res.json({ message: "User id not matched..!!" });
+      return res.json({ message: 'User id not matched..!!' });
     }
   } catch (error) {
     console.log(error);
@@ -53,20 +53,22 @@ const getRegisterUserDetails = async (req, res) => {
 
 const updateUserDetails = async (req, res) => {
   try {
-    const updateUser = await createUser.findOneAndUpdate(
-      { userName: req.body.userName },
-      {
-        $set: {
-          firstName: req.body.firstName,
-          lastName: req.body.lastName,
-          email: req.body.email,
-        },
-      }
-    );
-    if (updateUser) {
-      return res.json({ Message: "User updated..!!" });
+    const result = await helper.authSchema.validateAsync(req.body);
+    const doesExist = await createUser.findOne({ userName: result.userName });
+    if (doesExist) {
+      const updateUser = await createUser.updateOne(
+        { userName: result.userName },
+        {
+          $set: {
+            firstName: result.firstName,
+            lastName: result.lastName,
+            email: result.email,
+          },
+        }
+      );
+      return res.json({ Message: 'User updated..!!' });
     } else {
-      return res.json({ Message: "userId not found..!!" });
+      throw createHttpError.Conflict(`${result.userName} not found`);
     }
   } catch (error) {
     console.log(error);
@@ -76,9 +78,11 @@ const updateUserDetails = async (req, res) => {
 const deleteUserById = async (req, res) => {
   try {
     const deleteUser = await createUser
-      .find({ userName: req.params.userId }).remove().exec();
+      .find({ userName: req.params.userId })
+      .remove()
+      .exec();
     if (deleteUser) {
-      return res.json({ Message: "User deleted..!!" });
+      return res.json({ Message: 'User deleted..!!' });
     } else {
       return res.send(error);
     }

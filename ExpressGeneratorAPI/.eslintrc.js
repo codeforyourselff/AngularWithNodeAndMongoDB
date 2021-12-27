@@ -6,13 +6,16 @@ module.exports = {
   },
   extends: [
     "airbnb-base",
+    "prettier",
+    "plugin:node/recommended" 
   ],
+  "plugins": ["prettier"],
   parserOptions: {
     ecmaVersion: 13,
   },
   rules: {
-    "semi": ["error", "always"],
-    "quotes": ["error", "double"],
-    "extends": "eslint:recommended",
+    "no-unused-vars":"warn",
+    "no-console":"off",
+    "func-names":"off",
   },
 };

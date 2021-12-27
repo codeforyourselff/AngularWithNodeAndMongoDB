@@ -15,6 +15,7 @@ export class RegistrationComponent implements OnInit {
   ls: string = '';
   em: string = '';
   gender: string = '';
+  ps: string = "";
   cn: string = "";
 
   constructor(private service: AppServiceService,private route:Router) {}
@@ -28,11 +29,13 @@ export class RegistrationComponent implements OnInit {
       lastName: this.ls,
       email: this.em,
       gender: this.gender,
+      password:this.ps,
       contactNo: this.cn,
     };
     this.service.registerUser(obj).subscribe((response)=>{
       console.log(response);
     });
+    this.route.navigateByUrl('/Login');
   }
 
   getSpecificUser() {
