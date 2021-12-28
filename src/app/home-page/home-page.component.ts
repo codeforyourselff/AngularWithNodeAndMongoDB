@@ -7,10 +7,14 @@ import { AppServiceService } from '../app-service.service'
   styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent implements OnInit {
-
+  userData: Object={};
   constructor(private service: AppServiceService) { }
 
   ngOnInit(): void {
   }
-
+  getWelcomePage() {
+    this.service.welcomePage().subscribe((response)=>{
+      this.userData = response;
+    });
+  }
 }

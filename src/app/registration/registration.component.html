@@ -1,72 +1,73 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>RegistrationPage</title>
-  </head>
-  <body>
-    <h3>Registration Forms</h3>
-    <label>Create UserName</label><br />
-    <input
-      type="text"
-      name=""
-      class="form-control"
-      required="true"
-      [(ngModel)]="user"
-      maxlength="7" 
-    /><br />
-    <label>FirstName</label><br />
-    <input type="text" name="" class="form-control" [(ngModel)]="fs" /><br />
-    <label>LastName</label><br />
-    <input type="text" name="" class="form-control" [(ngModel)]="ls" /><br />
-    <label>Email</label><br />
-    <input
-      type="email"
-      name=""
-      class="form-control"
-      required
-      [(ngModel)]="em"
-    /><br />
-    <label>Gender</label><br /><br />
-    <input
-      type="radio"
-      name="gender"
-      value="Male"
-      [(ngModel)]="gender"
-    />Male<br />
-    <input
-      type="radio"
-      name="gender"
-      value="Female"
-      [(ngModel)]="gender"
-    />Female<br /><br />
-    <label>Create password</label><br />
-    <input
-      type="password"
-      class="form-control"
-      required
-      [(ngModel)]="ps"
-      minlength="8"
-      maxlength="16"
-    />
-    <label>ContactName</label><br />
-    <input
-      type="text"
-      name=""
-      class="form-control"
-      required
-      max="10"
-      [(ngModel)]="cn"
-    /><br />
-    <button class="btn btn-primary" (click)="registerUser()">
-      RegisterStudent</button
-    ><br /><br />
-    <button class="btn btn-primary" (click)="getAllUser()">getAllUser</button
-    ><br /><br />
-    <button class="btn btn-primary" (click)="getSpecificUser()">
-      getSpecificUser</button
-    ><br /><br />
-    <button class="btn btn-primary" (click)="updateUser()">UpdateUser</button
-    ><br /><br />
-    <button class="btn btn-primary" (click)="deleteUser()">DeleteUser</button>
-  </body>
+
+<head>
+  <title>RegistrationPage</title>
+</head>
+
+<body>
+ 
+<div class="bodyColor">
+  <h3>Registration Forms</h3>
+  <div class="form-group row">
+    <label for="inputUserName" class="col-sm-1 col-form-label"><b>Create UserName:</b></label>
+    <div class="col-sm-10">
+      <input type="text" name="" class="form-control" required="true" [(ngModel)]="user" maxlength="7" />
+    </div>
+  </div><br>
+  <div class="form-group row">
+    <label for="inputFirstName" class="col-sm-1 col-form-label"><b>FirstName:</b></label>
+    <div class="col-sm-10">
+      <input type="text" name="" class="form-control" [(ngModel)]="fs" />
+    </div>
+  </div><br>
+  <div class="form-group row">
+    <label for="inputLastname" class="col-sm-1 col-form-label"><b>LastName:</b></label>
+    <div class="col-sm-10">
+      <input type="text" name="" class="form-control" [(ngModel)]="ls" />
+    </div>
+  </div><br>
+  <div class="form-group row">
+    <label for="inputEmail" class="col-sm-1 col-form-label"><b>Email:</b></label>
+    <div class="col-sm-10">
+      <input type="email" name="" class="form-control" required [(ngModel)]="em" />
+    </div>
+  </div><br>
+  <fieldset class="form-group">
+    <div class="row">
+      <legend class="col-form-label col-sm-1 pt-3"><b>Gender:</b></legend>
+      <div class="col-sm-1">
+        <div class="form-check">
+          <input type="radio" name="gender" value="Male" [(ngModel)]="gender" />
+          <label class="form-check-label" for="gridRadios1">Male</label>
+        </div>
+        <div class="form-check">
+          <input type="radio" name="gender" value="Female" [(ngModel)]="gender" />
+          <label class="form-check-label" for="gridRadios1">Female</label>
+        </div>
+      </div>
+    </div>
+  </fieldset><br>
+  <div class="form-group row">
+    <label for="inputCreatedPassword" class="col-sm-1 col-form-label"><b>Create password:</b></label>
+    <div class="col-sm-10">
+      <input type="password" class="form-control" required [(ngModel)]="ps" minlength="8" maxlength="16" />
+    </div>
+  </div><br>
+  <div class="form-group row">
+    <label for="inputCreatedPassword" class="col-sm-1 col-form-label"><b>ContactName:</b></label>
+    <div class="col-sm-10">
+      <input type="text" name="" class="form-control" required max="10" [(ngModel)]="cn" /><br />
+    </div>
+  </div>
+  <button class="btn btn-primary" (click)="registerUser()">
+    RegisterStudent</button>&nbsp;
+  <button class="btn btn-primary" (click)="getAllUser()">getAllUser</button>&nbsp;
+  <button class="btn btn-primary" (click)="getSpecificUser()">
+    getSpecificUser</button>&nbsp;
+  <button class="btn btn-primary" (click)="updateUser()">UpdateUser</button>&nbsp;
+  <button class="btn btn-primary" (click)="deleteUser()">DeleteUser</button>
+</div>  
+</body>
+
 </html>

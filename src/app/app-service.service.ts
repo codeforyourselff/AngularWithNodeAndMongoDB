@@ -34,4 +34,8 @@ export class AppServiceService implements OnInit {
   loginUser(obj: Object) {
     return this.http.post(`${url.apiUrl}/getLoginUser`, obj);
   }
+
+  welcomePage() {
+    return this.http.get(`${url.apiUrl}/home`);
+  }
 }

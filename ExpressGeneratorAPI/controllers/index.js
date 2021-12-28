@@ -1,5 +1,5 @@
 const getWelcomePage = async(req, res, next) => {
-    res.render("index", { title: "Express JS" });
+    return res.json({title:"Welcome to Express JS"});
 }
 
 module.exports = { getWelcomePage }

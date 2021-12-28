@@ -1,1 +1,6 @@
-<p>home-page works!</p>
+<button (click)="getWelcomePage()" class="btn btn-primary">Click here</button>
+<table>
+    <tr *ngFor="let t of userData | keyvalue">
+        <h1>{{t.value}}</h1>
+    </tr>
+</table>
